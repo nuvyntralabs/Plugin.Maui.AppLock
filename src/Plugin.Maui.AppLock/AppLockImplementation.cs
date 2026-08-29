@@ -266,13 +266,24 @@ sealed class AppLockImplementation : IAppLock
                 inFlight = null;
         }
 
-        if (result.Succeeded)
+        if (result.Succeeded && ShouldRemainUnlocked())
             Transition(AppLockState.Unlocked);
         else
             Transition(AppLockState.Locked);
 
         AuthenticationCompleted?.Invoke(this, result);
         return result;
+    }
+
+    bool ShouldRemainUnlocked()
+    {
+        lock (gate)
+        {
+            if (backgroundedAt is not { } at || !options.LockOnBackground)
+                return true;
+
+            return options.LockAfter > TimeSpan.Zero && clock.UtcNow - at < options.LockAfter;
+        }
     }
 
     void Transition(AppLockState next)

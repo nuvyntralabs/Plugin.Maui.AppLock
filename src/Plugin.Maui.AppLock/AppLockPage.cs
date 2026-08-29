@@ -64,6 +64,8 @@ public sealed class AppLockPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
+        appLock.AuthenticationCompleted -= OnAuthenticationCompleted;
+        appLock.AuthenticationCompleted += OnAuthenticationCompleted;
         _ = PromptAsync();
     }
 

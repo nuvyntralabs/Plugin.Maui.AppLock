@@ -27,7 +27,7 @@ sealed class PlatformAuthenticator : IAuthenticator
         var availability = result switch
         {
             BiometricManager.BiometricSuccess => AppLockAvailability.Available,
-            BiometricManager.BiometricErrorNoneEnrolled => DeviceSecure(context)
+            BiometricManager.BiometricErrorNoneEnrolled => options.AllowDevicePin && DeviceSecure(context)
                 ? AppLockAvailability.Available
                 : AppLockAvailability.NotEnrolled,
             BiometricManager.BiometricErrorNoHardware => options.AllowDevicePin && DeviceSecure(context)
