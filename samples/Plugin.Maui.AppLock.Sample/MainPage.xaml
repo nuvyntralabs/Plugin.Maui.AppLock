@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Plugin.Maui.AppLock.Sample.MainPage"
+             Title="Plugin.Maui.AppLock">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="12">
+            <Label Text="Plugin.Maui.AppLock" FontSize="22" FontAttributes="Bold" />
+            <Label Text="Application lock · not another biometric API"
+                   TextColor="Gray" />
+
+            <Label x:Name="StatusLabel" FontSize="13" LineBreakMode="WordWrap" />
+            <Label x:Name="AvailabilityLabel" FontSize="13" TextColor="Gray" LineBreakMode="WordWrap" />
+
+            <Label Text="Workflow" FontAttributes="Bold" Margin="0,8,0,0" />
+            <HorizontalStackLayout Spacing="8">
+                <Switch x:Name="EnabledSwitch" Toggled="OnEnabledToggled" />
+                <Label Text="Enabled" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8">
+                <Switch x:Name="BiometricSwitch" Toggled="OnOptionsChanged" IsToggled="True" />
+                <Label Text="Allow biometric (Face ID / fingerprint)" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+            <HorizontalStackLayout Spacing="8">
+                <Switch x:Name="PinSwitch" Toggled="OnOptionsChanged" IsToggled="True" />
+                <Label Text="Allow device PIN" VerticalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <Label Text="Lock after (grace period)" FontAttributes="Bold" />
+            <Picker x:Name="LockAfterPicker" SelectedIndexChanged="OnLockAfterChanged">
+                <Picker.Items>
+                    <x:String>Immediate</x:String>
+                    <x:String>10 seconds</x:String>
+                    <x:String>2 minutes</x:String>
+                </Picker.Items>
+            </Picker>
+
+            <Label Text="Gates" FontAttributes="Bold" Margin="0,8,0,0" />
+            <Button Text="Lock now" Clicked="OnLockClicked" />
+            <Button Text="Unlock" Clicked="OnUnlockClicked" />
+            <Button Text="View balance (step-up)" Clicked="OnBalanceClicked" />
+            <Label x:Name="BalanceLabel" FontSize="18" FontAttributes="Bold" />
+
+            <Label Text="Simulate lifecycle" FontAttributes="Bold" Margin="0,8,0,0" />
+            <HorizontalStackLayout Spacing="8">
+                <Button Text="Background" Clicked="OnBackgroundClicked" />
+                <Button Text="Foreground" Clicked="OnForegroundClicked" />
+            </HorizontalStackLayout>
+            <Label Text="Background then wait past Lock after, then Foreground — or leave the app and come back."
+                   FontSize="12" TextColor="Gray" LineBreakMode="WordWrap" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

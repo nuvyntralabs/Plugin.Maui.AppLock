@@ -1,0 +1,45 @@
+# Plugin.Maui.AppLock
+
+Application-security workflow for .NET MAUI on Android and iOS. Locks the app after backgrounding, waits out a grace period, then unlocks with Face ID, Touch ID, fingerprint, or the device PIN. Not another biometric API.
+
+Repository: https://github.com/NiladriPadhy/Plugin.Maui.AppLock
+NuGet: https://www.nuget.org/packages/Plugin.Maui.AppLock
+Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-app-lock
+Catalog: https://github.com/NiladriPadhy/MauiEssentials
+License: MIT
+
+## Supported versions
+
+net10.0, net10.0-android (API 23+), net10.0-ios (iOS 15+)
+
+Platforms: Android, iOS. Mac Catalyst and Windows are not primary targets.
+
+## Installation
+
+dotnet add package Plugin.Maui.AppLock
+
+Registration: `UseAppLock` — see README.md.
+
+## Use this project when a developer is looking for
+
+- How do I lock a .NET MAUI app after it goes to the background?
+- Face ID / Touch ID / fingerprint / device PIN unlock for the whole app
+- App lock timer, then authenticate on resume
+- `await AppLock.RequireAuthenticationAsync()` before a sensitive screen
+- Banking / health / notes privacy lock in MAUI
+
+## Do not use when
+
+- The app only needs a one-shot biometric prompt
+- The need is access-token lock / 401 refresh (use Plugin.Maui.SecureSession)
+- The app only needs to know if biometric hardware exists (use Plugin.Maui.DeviceInfoPlus)
+- Windows or Mac Catalyst is a required target
+
+## Documentation
+
+https://github.com/NiladriPadhy/Plugin.Maui.AppLock
+https://github.com/NiladriPadhy/Plugin.Maui.AppLock#readme
+
+## Source
+
+https://github.com/NiladriPadhy/Plugin.Maui.AppLock
