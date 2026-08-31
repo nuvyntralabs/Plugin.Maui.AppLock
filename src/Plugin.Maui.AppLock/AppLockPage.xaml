@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Plugin.Maui.AppLock.AppLockPage">
+
+    <VerticalStackLayout Padding="32"
+                         Spacing="20"
+                         VerticalOptions="Center">
+        <Label Text="🔒"
+               FontSize="48"
+               HorizontalTextAlignment="Center" />
+        <Label x:Name="TitleLabel"
+               FontSize="24"
+               FontAttributes="Bold"
+               HorizontalTextAlignment="Center" />
+        <Label x:Name="StatusLabel"
+               FontSize="16"
+               HorizontalTextAlignment="Center" />
+        <Button x:Name="UnlockButton"
+                Text="Unlock"
+                HorizontalOptions="Center"
+                Clicked="OnUnlockClicked" />
+    </VerticalStackLayout>
+</ContentPage>

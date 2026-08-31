@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.4
+
+- `AppLockPage` lock cover is defined in XAML; layout and public API are unchanged
+
 ## 1.0.0
 
 - Application-security workflow for .NET MAUI on Android and iOS
