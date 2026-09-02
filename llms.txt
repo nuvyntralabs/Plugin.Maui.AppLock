@@ -14,6 +14,10 @@ net10.0, net10.0-android (API 23+), net10.0-ios (iOS 15+)
 
 Platforms: Android, iOS. Mac Catalyst and Windows are not primary targets.
 
+## Current release
+
+1.0.5 (3 September 2026). If the automatic resume prompt throws, AuthenticationCompleted still fires with a failed result so the cover stays up.
+
 ## Installation
 
 dotnet add package Plugin.Maui.AppLock
