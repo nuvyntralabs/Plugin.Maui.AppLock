@@ -20,6 +20,8 @@ sealed class FakeAuthenticator : IAuthenticator
 
     public AppLockAuthResult Result { get; set; } = AppLockAuthResult.Success(AppLockMethod.Biometric);
 
+    public Exception? ThrowOnAuthenticate { get; set; }
+
     public int AuthenticateCalls { get; private set; }
 
     public int AvailabilityCalls { get; private set; }
@@ -33,6 +35,8 @@ sealed class FakeAuthenticator : IAuthenticator
     public async Task<AppLockAuthResult> AuthenticateAsync(AppLockOptions options, CancellationToken cancellationToken)
     {
         AuthenticateCalls++;
+        if (ThrowOnAuthenticate is not null)
+            throw ThrowOnAuthenticate;
         if (hold is not null)
             return await hold.Task.WaitAsync(cancellationToken).ConfigureAwait(false);
 

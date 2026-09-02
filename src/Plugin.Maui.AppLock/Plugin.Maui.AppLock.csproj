@@ -30,8 +30,8 @@
     <PackageProjectUrl>https://nuvyntralabs.github.io/packages/plugin-maui-app-lock/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/nuvyntralabs/Plugin.Maui.AppLock</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>1.0.4</Version>
-    <PackageReleaseNotes>AppLockPage is now XAML. Layout and public API are unchanged.</PackageReleaseNotes>
+    <Version>1.0.5</Version>
+    <PackageReleaseNotes>Raise AuthenticationCompleted when the automatic resume prompt throws so the lock cover stays up.</PackageReleaseNotes>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>

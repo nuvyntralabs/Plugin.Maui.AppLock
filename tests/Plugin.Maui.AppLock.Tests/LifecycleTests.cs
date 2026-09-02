@@ -92,4 +92,25 @@ public sealed class LifecycleTests
 
         Assert.Equal(AppLockState.Unlocked, appLock.State);
     }
+
+    [Fact]
+    public async Task AutoPrompt_exception_raises_AuthenticationCompleted()
+    {
+        var (appLock, auth, clock, _) = Harness.Create(options => options.AutoPromptOnResume = true);
+        auth.ThrowOnAuthenticate = new InvalidOperationException("secure hardware unavailable");
+        AppLockAuthResult? completed = null;
+        appLock.AuthenticationCompleted += (_, e) => completed = e;
+
+        appLock.NotifyBackground();
+        clock.Advance(TimeSpan.FromMinutes(2));
+        appLock.NotifyForeground();
+
+        for (var i = 0; i < 50 && completed is null; i++)
+            await Task.Delay(20);
+
+        Assert.NotNull(completed);
+        Assert.False(completed!.Succeeded);
+        Assert.Equal(AppLockFailureKind.Failed, completed.Failure);
+        Assert.True(appLock.IsLocked);
+    }
 }

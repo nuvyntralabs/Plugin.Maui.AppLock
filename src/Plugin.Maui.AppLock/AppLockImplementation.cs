@@ -221,9 +221,9 @@ sealed class AppLockImplementation : IAppLock
         {
             await RequireAuthenticationAsync(AppLockPromptMode.IfLocked).ConfigureAwait(false);
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            // Stay locked. The host can call RequireAuthenticationAsync again.
+            AuthenticationCompleted?.Invoke(this, AppLockAuthResult.Fail(AppLockFailureKind.Failed, ex.Message));
         }
     }
 
