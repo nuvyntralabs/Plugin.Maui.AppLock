@@ -175,7 +175,7 @@ dotnet build samples/Plugin.Maui.AppLock.Sample/Plugin.Maui.AppLock.Sample.cspro
 dotnet pack src/Plugin.Maui.AppLock/Plugin.Maui.AppLock.csproj -c Release -o artifacts
 ```
 
-The `.nupkg` is written to `artifacts/Plugin.Maui.AppLock.1.0.5.nupkg`.
+The `.nupkg` is written to `artifacts/Plugin.Maui.AppLock.1.0.6.nupkg`.
 
 ## License
 

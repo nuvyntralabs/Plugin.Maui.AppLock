@@ -9,8 +9,10 @@ public partial class MainPage : ContentPage
 
     public MainPage(IAppLock appLock)
     {
-        InitializeComponent();
         this.appLock = appLock;
+        suppressToggle = true;
+        InitializeComponent();
+        suppressToggle = false;
         this.appLock.StateChanged += (_, _) => MainThread.BeginInvokeOnMainThread(Refresh);
         LockAfterPicker.SelectedIndex = 1;
         Refresh();

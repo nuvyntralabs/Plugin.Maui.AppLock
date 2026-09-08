@@ -17,7 +17,7 @@ public static class MauiProgram
                 options.LockAfter = TimeSpan.FromSeconds(10);
                 options.AllowBiometric = true;
                 options.AllowDevicePin = true;
-                options.LockOnStart = true;
+                options.LockOnStart = false;
                 options.AuthenticationReason = "Unlock AppLock Sample";
             });
 

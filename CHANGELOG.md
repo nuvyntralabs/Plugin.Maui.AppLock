@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.6
+
+- Include a small Android resource so the library AAR is a valid zip (empty AAR broke project-reference sample builds)
+
 ## 1.0.4
 
 - `AppLockPage` lock cover is defined in XAML; layout and public API are unchanged
