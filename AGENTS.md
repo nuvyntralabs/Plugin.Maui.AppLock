@@ -7,7 +7,7 @@ Application-security workflow for .NET MAUI on Android and iOS. Locks the app af
 - Package: `Plugin.Maui.AppLock`
 - NuGet: https://www.nuget.org/packages/Plugin.Maui.AppLock
 - GitHub: https://github.com/nuvyntralabs/Plugin.Maui.AppLock
-- Paper: https://niladripadhy.vercel.app/opensource/plugin-maui-app-lock
+- Paper: https://nuvyntralabs.github.io/packages/plugin-maui-app-lock/
 - Catalog: https://github.com/nuvyntralabs/MauiEssentials
 - Versions: net10.0, net10.0-android (API 23+), net10.0-ios (iOS 15+)
 

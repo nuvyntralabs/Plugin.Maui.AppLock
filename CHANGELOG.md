@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.7
+
+- Document Android and iOS host permissions required for the plugin to work.
+
 ## 1.0.6
 
 - Include a small Android resource so the library AAR is a valid zip (empty AAR broke project-reference sample builds)

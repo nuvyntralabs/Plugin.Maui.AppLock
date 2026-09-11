@@ -138,9 +138,24 @@ ShowBalance();
 
 Failed or cancelled prompts return `AppLockAuthResult`. The app stays locked. They do not throw.
 
-## Platform notes
+## Permissions
 
-**iOS** — Face ID needs a usage string in `Info.plist`:
+Required when `AllowBiometric` is true.
+
+### Android
+
+`USE_BIOMETRIC` is merged from the package. Declare it on the host if you merge manifests manually:
+
+```xml
+<uses-permission android:name="android.permission.USE_BIOMETRIC" />
+<uses-permission android:name="android.permission.USE_FINGERPRINT" />
+```
+
+Minimum API 23. Enroll a fingerprint, face, or device PIN on the emulator before testing. When `AllowDevicePin` is true, the system prompt includes the device credential and hides the cancel button (AndroidX Biometric rule).
+
+### iOS
+
+Add to `Platforms/iOS/Info.plist`:
 
 ```xml
 <key>NSFaceIDUsageDescription</key>
@@ -149,7 +164,7 @@ Failed or cancelled prompts return `AppLockAuthResult`. The app stays locked. Th
 
 `AllowDevicePin` uses `LAPolicy.DeviceOwnerAuthentication` (biometrics with passcode fallback). Biometric-only uses `DeviceOwnerAuthenticationWithBiometrics`.
 
-**Android** — `USE_BIOMETRIC` is merged from the package. Minimum API 23. Enroll a fingerprint, face, or device PIN on the emulator before testing. When `AllowDevicePin` is true, the system prompt includes the device credential and hides the cancel button (AndroidX Biometric rule).
+## Platform notes
 
 | | Android | iOS | `net10.0` |
 | --- | --- | --- | --- |
@@ -175,7 +190,7 @@ dotnet build samples/Plugin.Maui.AppLock.Sample/Plugin.Maui.AppLock.Sample.cspro
 dotnet pack src/Plugin.Maui.AppLock/Plugin.Maui.AppLock.csproj -c Release -o artifacts
 ```
 
-The `.nupkg` is written to `artifacts/Plugin.Maui.AppLock.1.0.6.nupkg`.
+The `.nupkg` is written to `artifacts/Plugin.Maui.AppLock.1.0.7.nupkg`.
 
 ## License
 
